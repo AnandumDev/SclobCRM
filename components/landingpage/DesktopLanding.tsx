@@ -12,7 +12,6 @@ import userIcon from "@/public/assets/icons/usericon.png";
 import ApexChart from "../desktop/TeamPerformance";
 import TargetChart from "../desktop/TargetPerformance";
 import Toppers from "../desktop/Toppers";
-import TargetPerformanceChart from "@/mobile/MobileLandingCompontes/TargetPerformanceChart";
 
 const UserIcon = () => (
   <div className="bg-white w-12 h-12 rounded-full flex items-center justify-center shadow relative overflow-hidden">
@@ -52,20 +51,25 @@ export default function DesktopLanding() {
         ))}
       </div>
 
-      {/* ===== ROW 2 — CHARTS SECTION ===== */}
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10 px-6">
+     {/* ===== ROW 2 — CHARTS SECTION ===== */}
+<div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_540px] gap-10 mt-10 px-6">
 
-        {/* LEFT CHART */}
-        <div className="lg:col-span-2 rounded-2xl ">
-          <ApexChart />
-        </div>
+  {/* LEFT CHART — FIXED WIDTH & RESPONSIVE */}
+  <div className="w-full flex justify-center lg:justify-start">
+    <div className="w-full max-w-[625px]">
+      <ApexChart />
+    </div>
+  </div>
 
-        {/* RIGHT CHART */}
-        <div className="rounded-2xl ">
-          <TargetPerformanceChart/>
-        </div>
+  {/* RIGHT CHART — EXACT SIZE 534×328 */}
+  <div className="flex justify-center lg:justify-end">
+    <div className="w-[534px] h-[328px]">
+      <TargetChart />
+    </div>
+  </div>
 
-      </div>
+</div>
+
 
       {/* ===== ROW 3 — TOPPERS SECTION ===== */}
       <div className="max-w-[1300px] mx-auto mt-12 px-6">

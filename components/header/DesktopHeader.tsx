@@ -16,7 +16,7 @@ export default function DesktopHeader() {
   const [orgOpen, setOrgOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-[#2b0b4d] text-white px-6 py-3 shadow-md">
+    <nav className="w-full bg-[#2b0b4d] text-white px-6 py-5 shadow-md">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         
         <div className="flex items-center space-x-2">

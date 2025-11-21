@@ -65,37 +65,39 @@ const TeamPerformance = () => {
   };
 
   return (
-    <div className="rounded-2xl bg-white p-6 shadow-lg">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-semibold text-gray-800">Team Performance</h2>
+  <div
+    className="rounded-2xl bg-white p-6 shadow-lg "
+    style={{ width: "600px", height: "328px" }}
+  >
+    <div className="flex items-center justify-between mb-4">
+      <h2 className="text-xl font-semibold text-gray-800">Team Performance</h2>
 
-        <div className="flex items-center gap-4">
-
-          <div className="flex items-center gap-2 border border-gray-300 px-3 py-2 rounded-lg cursor-pointer hover:bg-gray-50">
-            <FiCalendar className="text-gray-600 text-[18px]" />
-            <select className="bg-transparent outline-none cursor-pointer text-gray-700">
-              <option value="2022">2022</option>
-              <option value="2023">2023</option>
-              <option value="2024">2024</option>
-            </select>
-          </div>
-
-          <button className="flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-4 py-2 rounded-lg font-medium shadow">
-            <HiDownload className="text-[20px]" />
-            Download
-          </button>
-
+      <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 border border-gray-300 px-3 py-2 rounded-lg cursor-pointer hover:bg-gray-50">
+          <FiCalendar className="text-gray-600 text-[18px]" />
+          <select className="bg-transparent outline-none cursor-pointer text-gray-700">
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+          </select>
         </div>
-      </div>
 
-      <ReactApexChart
-        options={options}
-        series={series}
-        type="line"
-        height={300}
-      />
+        <button className="flex items-center gap-2 bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-4 py-2 rounded-lg font-medium shadow">
+          <HiDownload className="text-[20px]" />
+          Download
+        </button>
+      </div>
     </div>
-  );
+
+    <ReactApexChart
+      options={options}
+      series={series}
+      type="line"
+      height={230} /* adjusted so total card height = 328px */
+    />
+  </div>
+);
+
 };
 
 export default TeamPerformance;
