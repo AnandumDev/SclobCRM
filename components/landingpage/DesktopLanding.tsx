@@ -12,6 +12,7 @@ import userIcon from "@/public/assets/icons/usericon.png";
 import ApexChart from "../desktop/TeamPerformance";
 import TargetChart from "../desktop/TargetPerformance";
 import Toppers from "../desktop/Toppers";
+import TargetPerformanceChart from "@/mobile/MobileLandingCompontes/TargetPerformanceChart";
 
 const UserIcon = () => (
   <div className="bg-white w-12 h-12 rounded-full flex items-center justify-center shadow relative overflow-hidden">
@@ -61,7 +62,7 @@ export default function DesktopLanding() {
 
         {/* RIGHT CHART */}
         <div className="rounded-2xl ">
-          <TargetChart />
+          <TargetPerformanceChart/>
         </div>
 
       </div>
