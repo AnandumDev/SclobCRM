@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import logo from "@/public/assets/images/logo.png"; 
+import logo from "@/public/assets/images/logo.png";
 import {
   BellIcon,
   UserIcon,
@@ -16,24 +16,22 @@ export default function DesktopHeader() {
   const [orgOpen, setOrgOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-[#2b0b4d] text-white px-6 py-3 shadow-md">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+    <nav className="w-full bg-[#2b0b4d] text-white shadow-md">
+      <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
         
         {/* LEFT — LOGO */}
-        <div className="flex items-center space-x-2">
-          <Image
-            src={logo}
-            alt="Seclob Logo"
-            width={32}
-            height={32}
-          />
-          <span className="text-xl font-semibold">Seclob</span>
+        <div className="flex items-center space-x-3">
+          <Image src={logo} alt="Seclob Logo" width={38} height={38} />
+          <span className="text-2xl font-semibold tracking-wide">Seclob</span>
         </div>
 
         {/* MOBILE MENU BUTTON */}
         <button
           className="md:hidden block"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => {
+            setMobileOpen(!mobileOpen);
+            if (mobileOpen) setOrgOpen(false); // close dropdown on close
+          }}
         >
           {mobileOpen ? (
             <XMarkIcon className="w-7 h-7" />
@@ -42,39 +40,41 @@ export default function DesktopHeader() {
           )}
         </button>
 
-        {/* CENTER MENU ITEMS */}
-        <ul className="hidden md:flex items-center space-x-8 text-sm">
+        {/* CENTER NAVIGATION — DESKTOP */}
+        <ul className="hidden md:flex items-center space-x-10 text-[15px] font-medium">
 
-          <li className="hover:text-gray-300 cursor-pointer">Dashboard</li>
+          <li className="cursor-pointer hover:text-gray-300">Dashboard</li>
 
-          {/* DROPDOWN */}
-          <li
-            className="relative flex items-center space-x-1 hover:text-gray-300 cursor-pointer"
-            onClick={() => setOrgOpen(!orgOpen)}
-          >
-            <span>Organization</span>
-            <ChevronDownIcon className="w-4 h-4" />
+          {/* Organization Dropdown */}
+          <li className="relative">
+            <button
+              className="flex items-center gap-1 hover:text-gray-300"
+              onClick={() => setOrgOpen(!orgOpen)}
+            >
+              Organization
+              <ChevronDownIcon className="w-4 h-4" />
+            </button>
 
             {orgOpen && (
-              <div className="absolute top-7 left-0 bg-white text-black rounded shadow-lg py-2 w-40">
+              <div className="absolute mt-2 bg-white text-black rounded-md shadow-lg w-44 py-2 z-20">
                 <p className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Branch</p>
                 <p className="px-4 py-2 hover:bg-gray-200 cursor-pointer">Department</p>
               </div>
             )}
           </li>
 
-          <li className="hover:text-gray-300 cursor-pointer">Designation</li>
-          <li className="hover:text-gray-300 cursor-pointer">Employee</li>
-          <li className="hover:text-gray-300 cursor-pointer">Product</li>
+          <li className="cursor-pointer hover:text-gray-300">Designation</li>
+          <li className="cursor-pointer hover:text-gray-300">Employee</li>
+          <li className="cursor-pointer hover:text-gray-300">Product</li>
         </ul>
 
-        {/* RIGHT — USER + NOTIFICATION */}
-        <div className="hidden md:flex items-center space-x-6">
-          <span className="font-medium">Welcome Admin !</span>
+        {/* RIGHT SIDE — DESKTOP */}
+        <div className="hidden md:flex items-center space-x-7">
+          <span className="font-medium text-[15px]">Welcome Admin !</span>
 
           <div className="relative cursor-pointer">
             <BellIcon className="w-6 h-6" />
-            <span className="absolute -top-1 -right-1 bg-[#DBFCE7] text-black text-xs w-4 h-4 flex items-center justify-center rounded-full">
+            <span className="absolute -top-1 -right-2 bg-[#DBFCE7] text-black text-xs w-4 h-4 flex items-center justify-center rounded-full">
               0
             </span>
           </div>
@@ -85,18 +85,19 @@ export default function DesktopHeader() {
 
       {/* MOBILE MENU */}
       {mobileOpen && (
-        <div className="md:hidden mt-4 space-y-4">
+        <div className="md:hidden bg-[#2b0b4d] px-6 pb-6 space-y-4">
 
           <p className="hover:text-gray-300 cursor-pointer">Dashboard</p>
 
+          {/* Mobile Dropdown */}
           <div>
-            <div
-              className="flex items-center space-x-1 hover:text-gray-300 cursor-pointer"
+            <button
+              className="flex items-center gap-1 hover:text-gray-300"
               onClick={() => setOrgOpen(!orgOpen)}
             >
-              <span>Organization</span>
+              Organization
               <ChevronDownIcon className="w-4 h-4" />
-            </div>
+            </button>
 
             {orgOpen && (
               <div className="ml-4 mt-2 space-y-2">
@@ -110,16 +111,15 @@ export default function DesktopHeader() {
           <p className="hover:text-gray-300 cursor-pointer">Employee</p>
           <p className="hover:text-gray-300 cursor-pointer">Product</p>
 
-          {/* MOBILE USER SECTION */}
+          {/* MOBILE FOOTER */}
           <div className="pt-4 border-t border-gray-600 flex items-center justify-between">
             <span>Welcome Admin !</span>
             <div className="flex items-center space-x-4">
               <div className="relative">
                 <BellIcon className="w-6 h-6" />
-               <span className="absolute -top-1 -right-1 bg-[#DBFCE7] text-black text-xs w-4 h-4 flex items-center justify-center rounded-full">
-  0
-</span>
-
+                <span className="absolute -top-1 -right-2 bg-[#DBFCE7] text-black text-xs w-4 h-4 flex items-center justify-center rounded-full">
+                  0
+                </span>
               </div>
               <UserIcon className="w-7 h-7" />
             </div>
