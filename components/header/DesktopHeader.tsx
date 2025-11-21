@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import logo from "@/public/assets/images/logo.png"; 
 import {
   BellIcon,
   UserIcon,
@@ -21,7 +22,7 @@ export default function DesktopHeader() {
         {/* LEFT — LOGO */}
         <div className="flex items-center space-x-2">
           <Image
-            src="/logo.png"
+            src={logo}
             alt="Seclob Logo"
             width={32}
             height={32}
@@ -73,7 +74,7 @@ export default function DesktopHeader() {
 
           <div className="relative cursor-pointer">
             <BellIcon className="w-6 h-6" />
-            <span className="absolute -top-1 -right-1 bg-green-400 text-black text-xs w-4 h-4 flex items-center justify-center rounded-full">
+            <span className="absolute -top-1 -right-1 bg-[#DBFCE7] text-black text-xs w-4 h-4 flex items-center justify-center rounded-full">
               0
             </span>
           </div>
@@ -115,9 +116,10 @@ export default function DesktopHeader() {
             <div className="flex items-center space-x-4">
               <div className="relative">
                 <BellIcon className="w-6 h-6" />
-                <span className="absolute -top-1 -right-1 bg-green-400 text-black text-xs w-4 h-4 flex items-center justify-center rounded-full">
-                  0
-                </span>
+               <span className="absolute -top-1 -right-1 bg-[#DBFCE7] text-black text-xs w-4 h-4 flex items-center justify-center rounded-full">
+  0
+</span>
+
               </div>
               <UserIcon className="w-7 h-7" />
             </div>
