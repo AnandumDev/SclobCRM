@@ -4,7 +4,7 @@ import { BellIcon, UserIcon } from '@heroicons/react/24/outline';
 function MobileHeader() {
   return (
     <div>
-        <header className="w-full bg-[#41136B] px-6 py-5 flex items-center justify-between">
+        <header className="w-full px-6 py-5 flex items-center justify-between" style={{ backgroundColor: '#3D155F' }}>
       {/* Left: Logo + Text */}
       <div className="flex items-center gap-2">
           <Image

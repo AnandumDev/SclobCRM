@@ -94,7 +94,7 @@ const TeamPerformance = () => {
         </div>
       </div>
 
-      <ReactApexChart options={options} series={series} type="line" height={300} />
+      <ReactApexChart options={options} series={series} type="line" height={270} />
     </div>
   );
 };

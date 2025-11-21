@@ -4,6 +4,7 @@ import "./globals.css";
 import DesktopHeader from "@/components/header/DesktopHeader";
 import MobileHeader from "@/components/header/MobileHeader";
 import { useState, useEffect } from "react";
+import MobileFooter from "@/components/footer/MobileFooter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({
       >
         {isMobile ? <MobileHeader/> : <DesktopHeader/>}
         {children}
+        {isMobile && <MobileFooter />}
       </body>
     </html>
   );
